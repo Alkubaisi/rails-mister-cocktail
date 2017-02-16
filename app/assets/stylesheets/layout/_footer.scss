@@ -1,1 +1,24 @@
 // Your footer style
+.footer {
+  height: 250px;
+  background-color: #EFEFEF;
+  position: relative;
+}
+.sociallist {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+
+}
+.lilist {
+
+  color: #D23333;
+}
+.lilist:hover  {
+
+  color: black;
+}
+#newsletter {
+  position: absolute;
+  left: 50px;
+}
