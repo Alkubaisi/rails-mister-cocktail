@@ -5,6 +5,11 @@ class CocktailsController < ApplicationController
   # GET /cocktails.json
   def index
     @cocktails = Cocktail.all
+       if params[:query].blank?
+     @cocktails = Cocktail.all
+   else
+     @cocktails = Cocktail.where('name ILIKE ?', "%#{params[:query]}%")
+   end
   end
 
   # GET /cocktails/1
