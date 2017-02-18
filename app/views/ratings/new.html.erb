@@ -1,16 +1,21 @@
-<div class="container">
+<div style="margin-bottom: 150px; margin-top: 50px;">
+  <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-
+<h1>Add Rating</h1>
 
 <%= simple_form_for [@cocktail, @rating] do |f|%>
 
 <%= f.input :content %>
-<%= f.select :rating,  ['1', '2', '3', '4', '5'] %>
 
-<br><br><br>
+
+<%= f.input :rating, collection: 1..5, prompt: "Stars" %>
+
+
+
 <%= f.button :submit, {class: "btn btn-primary"} %>
 <%end  %>
     </div>
   </div>
+</div>
 </div>

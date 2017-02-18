@@ -6,6 +6,7 @@ class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
 
+
        if params[:query].blank?
      @cocktails = Cocktail.all
    else
