@@ -1,66 +1,111 @@
 <div>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @cocktail.photo.path, crop: :fill %>');">
-  <div class="banner-content">
-    <h1><%= @cocktail.name %> </h1>
-
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <p id="notice"><%= notice %></p>
-
-      <h1> Ingredient list:</h1>
-<table class="table table-hover">
-
-
-
-<tr>
-  <th>Dose</th>
-  <th>Ingredient</th>
-  <th> <%= link_to new_cocktail_dose_path(@cocktail) do %>
-         <i class="fa fa-plus" aria-hidden="true"></i>
-          <% end %></th>
-</tr>
-<%@cocktail.doses.each do |dose|  %>
-<tr>
-  <td><%= dose.description %> </td>
-  <td><%= dose.ingredient.name %>  </td>
-  <td><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }  do %>
-       <i class="fa fa-trash" aria-hidden="true"></i>
-
-
-
- <% end %>
-
-
-    </td>
-</tr>
-<% end %>
-
-</table>
-
-
-
-
-
-<ul class="list-inline">
-  <li>
-        <%= link_to edit_cocktail_path(@cocktail) do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
-
-  </i>
-  <li>
-     <%= link_to root_path do %>
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-          <% end %>
-  </li>
-
-</ul>
+    <div class="banner-content">
+      <h1><%= @cocktail.name %> </h1>
 
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 ">
+        <p id="notice"><%= notice %></p>
+
+        <h1> Ingredient list:</h1>
+        <table class="table table-hover">
+
+
+
+          <tr>
+            <th>Dose</th>
+            <th>Ingredient</th>
+            <th> <%= link_to new_cocktail_dose_path(@cocktail) do %>
+             <i class="fa fa-plus" aria-hidden="true"></i>
+             <% end %></th>
+           </tr>
+           <%@cocktail.doses.each do |dose|  %>
+           <tr>
+            <td><%= dose.description %> </td>
+            <td><%= dose.ingredient.name %>  </td>
+            <td><%= link_to dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+             <i class="fa fa-trash" aria-hidden="true"></i>
+
+
+
+             <% end %>
+
+
+           </td>
+         </tr>
+         <% end %>
+
+       </table>
+
+
+
+
+
+       <ul class="list-inline">
+        <li>
+          <%= link_to edit_cocktail_path(@cocktail) do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+
+        </i>
+        <li>
+         <%= link_to root_path do %>
+         <i class="fa fa-arrow-left" aria-hidden="true"></i>
+         <% end %>
+       </li>
+
+     </ul>
+
+   </div>
+<div class="col-xs-12 col-sm-6 ">
+
+
+
+<h1> Ratings:</h1>
+ <table class="table table-hover">
+
+
+
+          <tr>
+            <th>Ratings</th>
+            <th>Stars</th>
+            <th> <%= link_to new_cocktail_rating_path(@cocktail) do %>
+             <i class="fa fa-plus" aria-hidden="true"></i>
+             <% end %></th>
+           </tr>
+            <%@cocktail.ratings.each do |rating|  %>
+           <tr>
+            <td><%= rating.content %> </td>
+            <td>
+
+
+
+<%= raw ("#{icon('star-o')} " * rating.rating.to_i) %>
+
+            </td>
+            <td><%= link_to rating_path(rating), method: :delete, data: { confirm: 'Are you sure?' }  do %>
+             <i class="fa fa-trash" aria-hidden="true"></i>
+
+
+
+             <% end %>
+
+
+           </td>
+         </tr>
+         <% end %>
+
+       </table>
+
+
+
+
+
+</div>
+ </div>
 </div>
 
 
